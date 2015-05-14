@@ -11,8 +11,17 @@
 	<th>Informations</th>
 	<th>Plugins</th>
 </tr>
-<?php foreach(get_wikis() as $wiki): ?>
-
+<?php foreach(wikidb_get() as $wiki): ?>
+<tr>
+	<td>
+		<?php echo $wiki['host'] ?>
+	</td>
+	<td>
+		<?php foreach (get_plugins_ftp(wftp_connect($wiki)) as $p): ?>
+			<?php echo $p['name'] ?>[<?php echo $p['date'] ?>]<br>
+		<?php endforeach ?>
+	</td>
+<tr>
 <?php endforeach ?>
 </table>
 </body> 
