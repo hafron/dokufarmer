@@ -72,7 +72,7 @@ function create_plugins_archive($plugins) {
 	foreach ($plugins as $plugin) {
 		$queue = array();
 		array_push($queue, $plugin[1]);
-		$plugin_name = 'lib/plugins/'.$plugin[0]['name'];
+		$plugin_name = 'lib/plugins/'.$plugin[0]['base'];
 		while (count($queue) > 0) {
 			$dir = array_pop($queue);
 
